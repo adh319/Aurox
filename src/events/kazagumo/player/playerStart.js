@@ -166,7 +166,12 @@ module.exports = async (client, player, track) => {
             case "stop":
                 message.deferUpdate();
 
-                player.stop();
+                player.queue.clear();
+                player.skip();
+
+                if (player.queue.previous) player.queue.previous = [];
+                if (player.queue.current) player.queue.current = null;
+                if (client.data.get("autoplay", player.guildId)) client.data.delete("autoplay", player.guildId);
                 break;
         }
     });
