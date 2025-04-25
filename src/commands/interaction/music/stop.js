@@ -15,11 +15,7 @@ module.exports = {
     },
     devOnly: false,
     run: async (client, interaction, player) => {
-        
-
         const embed = new EmbedBuilder().setColor(client.config.embedColor).setDescription(`Skipped the current song.`);
-
-        
 
         return interaction.reply({ embeds: [embed], ephemeral: true });
     },

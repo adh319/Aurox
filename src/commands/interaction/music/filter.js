@@ -13,13 +13,10 @@ module.exports = {
             choices: [
                 { name: "clear", value: "clear" },
                 { name: "8d", value: "eightD" },
-                { name: "bass", value: "bass" },
-                { name: "china", value: "china" },
-                { name: "chipmunk", value: "chimpunk" },
-                { name: "darthvader", value: "darthvader" },
+                { name: "bassboost", value: "bassboost" },
+                { name: "chipmunk", value: "chipmunk" },
                 { name: "daycore", value: "daycore" },
                 { name: "doubletime", value: "doubletime" },
-                { name: "earrape", value: "earrape" },
                 { name: "electronic", value: "electronic" },
                 { name: "karaoke", value: "karaoke" },
                 { name: "nightcore", value: "nightcore" },
@@ -27,14 +24,12 @@ module.exports = {
                 { name: "pitch", value: "pitch" },
                 { name: "pop", value: "pop" },
                 { name: "radio", value: "radio" },
-                { name: "rate", value: "rate" },
-                { name: "slow", value: "slow" },
+                { name: "slowmo", value: "slowmo" },
                 { name: "soft", value: "soft" },
-                { name: "speed", value: "speed" },
-                { name: "tremolo", value: "tremolo" },
+                { name: "television", value: "television" },
                 { name: "treblebass", value: "treblebass" },
                 { name: "vaporwave", value: "vaporwave" },
-                { name: "vibrato", value: "vibrato" },
+                { name: "vibrate", value: "vibrate" },
             ],
         },
     ],
@@ -53,15 +48,17 @@ module.exports = {
         const mode = interaction.options.getString("mode");
         const currentVolume = player.volume;
 
-        await player.filter(mode);
-        player.setVolume(currentVolume);
-        
-
         if (mode === "clear") {
+            player.shoukaku.clearFilters();
+
             embed.setDescription(`Filter has been cleared.`);
         } else {
+            player.shoukaku.setFilters(client.filters[mode]);
+
             embed.setDescription(`Filter has been set to: \`${mode}\``);
         }
+
+        player.setVolume(currentVolume);
 
         return interaction.reply({ embeds: [embed], ephemeral: true });
     },

@@ -1,6 +1,6 @@
 {
   "name": "aurox",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Aurox by @adh319",
   "main": "src/index.js",
   "scripts": {
@@ -14,7 +14,6 @@
     "dotenv": "^16.4.7",
     "google-search-url": "^0.1.8",
     "kazagumo": "^3.2.2",
-    "kazagumo-filter": "^2.0.0",
     "kazagumo-spotify": "^2.1.1",
     "llyrics": "^1.1.7",
     "lodash": "^4.17.21",

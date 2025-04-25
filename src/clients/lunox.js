@@ -3,7 +3,6 @@ const { ClusterClient, getInfo } = require("discord-hybrid-sharding");
 const { Connectors } = require("shoukaku");
 const { Kazagumo, Plugins } = require("kazagumo");
 const Spotify = require("kazagumo-spotify");
-const KazagumoFilter = require("kazagumo-filter");
 
 class MainClient extends Client {
     constructor() {
@@ -25,6 +24,7 @@ class MainClient extends Client {
         });
 
         this.config = require("../settings/config.js");
+        this.filters = require("../settings/filters.js");
         this.guildData = require("../databases/schema/guild.js");
         this.userData = require("../databases/schema/user.js");
         this.prefix = new Collection();
@@ -37,7 +37,6 @@ class MainClient extends Client {
                 defaultSource: this.config.defaultSource,
                 plugins: [
                     new Plugins.PlayerMoved(this),
-                    new KazagumoFilter(),
                     new Spotify({
                         clientId: this.config.spotifyID,
                         clientSecret: this.config.spotifySecret,
