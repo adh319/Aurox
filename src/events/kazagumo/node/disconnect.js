@@ -7,7 +7,7 @@ module.exports = async (client, name, players, moved, count) => {
 };
 
 /**
- * Project: Lunox
+ * Project: Aurox
  * Author: adh319
  * Company: EnourDev
  * This code is the property of EnourDev and may not be reproduced or

@@ -20,7 +20,7 @@ module.exports = (client) => {
 };
 
 /**
- * Project: Lunox
+ * Project: Aurox
  * Author: adh319
  * Company: EnourDev
  * This code is the property of EnourDev and may not be reproduced or

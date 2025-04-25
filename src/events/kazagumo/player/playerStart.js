@@ -18,7 +18,7 @@ module.exports = async (client, player, track) => {
         .setFields(
             { name: "Duration", value: `\`${trackDuration}\``, inline: true },
             { name: "Requested by", value: `${track.requester}`, inline: true },
-            { name: "Source", value: `${capitalize(track.source)}`, inline: true },
+            { name: "Source", value: `${capitalize(track.sourceName)}`, inline: true },
         );
 
     const button = new ActionRowBuilder().addComponents(
@@ -177,7 +177,7 @@ function capitalize(string) {
 }
 
 /**
- * Project: Lunox
+ * Project: Aurox
  * Author: adh319
  * Company: EnourDev
  * This code is the property of EnourDev and may not be reproduced or

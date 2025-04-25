@@ -13,7 +13,7 @@ manager.on("clusterCreate", (cluster) => console.log(`[INFO] Launched cluster ${
 manager.spawn({ timeout: -1 });
 
 /**
- * Project: Lunox
+ * Project: Aurox
  * Author: adh319
  * Company: EnourDev
  * This code is the property of EnourDev and may not be reproduced or

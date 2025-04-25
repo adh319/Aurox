@@ -11,7 +11,7 @@ const createUser = mongoose.Schema({
 module.exports = mongoose.model("user", createUser);
 
 /**
- * Project: Lunox
+ * Project: Aurox
  * Author: adh319
  * Company: EnourDev
  * This code is the property of EnourDev and may not be reproduced or
