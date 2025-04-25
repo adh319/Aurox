@@ -1,0 +1,18 @@
+name: "Feature request"
+description: "Suggest an idea to this repo"
+title: "[Feature Request]: "
+labels: ["enhancement"]
+assignees:
+  - adh319
+body:
+- type: markdown
+  attributes:
+    value: "Is your feature request related to a problem? Please describe."
+- type: textarea
+  id: description
+  attributes:
+    label: "Description of your suggestion"
+    description: "Explain your idea with screenshoots, example, etc"
+    placeholder: "Explain your idea"
+  validations:
+    required: true
