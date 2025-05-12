@@ -19,7 +19,7 @@
     "lodash": "^4.17.21",
     "moment": "^2.30.1",
     "mongoose": "^8.12.2",
-    "node-cron": "^3.0.3",
+    "node-cron": "^4.0.3",
     "pretty-ms": "^9.2.0",
     "shoukaku": "^4.1.1"
   },
