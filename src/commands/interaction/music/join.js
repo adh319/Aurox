@@ -5,8 +5,8 @@ module.exports = {
     description: "Join the voice channel",
     category: "music",
     permissions: {
-        bot: [],
-        user: [],
+        bot: ["Speak", "Connect"],
+        user: ["Connect", "Speak"],
     },
     settings: {
         voice: true,

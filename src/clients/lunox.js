@@ -34,19 +34,7 @@ class MainClient extends Client {
 
         this.kazagumo = new Kazagumo(
             {
-                defaultSource: this.config.defaultSource,
-                plugins: [
-                    new Plugins.PlayerMoved(this),
-                    new Spotify({
-                        clientId: this.config.spotifyID,
-                        clientSecret: this.config.spotifySecret,
-                        playlistPageLimit: 1, // optional ( 100 tracks per page )
-                        albumPageLimit: 1, // optional ( 50 tracks per page )
-                        searchLimit: 10, // optional ( track search limit. Max 50 )
-                        searchMarket: "US", // optional || default: US ( Enter the country you live in. [ Can only be of 2 letters. For eg: US, IN, EN ] )//
-                    }),
-                ],
-                sourceForceResolve: this.config.sourceForceResolve,
+                plugins: [new Plugins.PlayerMoved(this)],
                 defaultYoutubeThumbnail: this.config.defaultYoutubeThumbnail,
                 send: (guildId, payload) => {
                     const guild = this.guilds.cache.get(guildId);

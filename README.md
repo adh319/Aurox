@@ -79,8 +79,6 @@ GENIUS_API_KEY =  # Your Genius API key
 SUPPORT_SERVER_URL = https://discord.gg/kNdSkHchzH # Support server url
 
 # KAZAGUMO DETAILS
-SPOTIFY_ID =  # Your Spotify client ID
-SPOTIFY_SECRET =  # Your Spotify client secret
 DEFAULT_SOURCE = ytsearch: # Default source Available source: ytsearch:, ytmsearch:, scsearch: | These are the default sources if you dont have lavasrc plugin installed
 DEFAULT_YOUTUBE_THUMBNAIL = maxresdefault
 LAVASRC = false # Set to true if you have lavasrc plugin installed, so you can use spotify (spsearch:), applemusic (amsearch:), and others as source.
@@ -92,7 +90,7 @@ LAVASRC_SOURCE = spsearch: # This will be used when LAVASRC is true
 ```js
 // line 8
 dev: [" "], // your Discord user Id & developer user Id. Seperate multiple Ids with a comma (,)
-// Line 50
+// Line 26
 nodes: [
     {
         name: "Aurox",

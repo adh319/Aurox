@@ -18,14 +18,15 @@ module.exports = {
         await interaction.deferReply({ ephemeral: true });
 
         const guildData = client.data.get(`guildData_${interaction.guildId}`);
+        const newStatus = !guildData.reconnect.status;
 
-        guildData.reconnect.status = !guildData.reconnect.status;
-        guildData.reconnect.text = player.textId || interaction.channelId;
-        guildData.reconnect.voice = player.voiceId || interaction.member.voice.channelId;
+        guildData.reconnect.status = newStatus;
+        guildData.reconnect.text = newStatus ? player.textId || interaction.channelId : null;
+        guildData.reconnect.voice = newStatus ? player.voiceId || interaction.member?.voice?.channelId : null;
 
         const embed = new EmbedBuilder()
             .setColor(client.config.embedColor)
-            .setDescription(guildData.reconnect.status ? "247 mode is now `enabled`." : "247 mode is now `disabled`.");
+            .setDescription(newStatus ? "✅ 24/7 mode is now `enabled`." : "❌ 24/7 mode is now `disabled`.");
 
         return interaction.editReply({ embeds: [embed] });
     },

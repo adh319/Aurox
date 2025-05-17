@@ -15,37 +15,12 @@ module.exports = {
     supportServerUrl: process.env.SUPPORT_SERVER_URL || " ", // your support server url
 
     // KAZAGUMO DETAILS
-    spotifyID: process.env.SPOTIFY_ID || " ",
-    spotifySecret: process.env.SPOTIFY_SECRET || " ",
     defaultSource: process.env.DEFAULT_SOURCE || "ytsearch:",
     defaultYoutubeThumbnail: process.env.DEFAULT_YOUTUBE_THUMBNAIL || "maxresdefault",
-    sourceForceResolve: [
-        "bandcamp",
-        "http",
-        "local",
-        "soundcloud",
-        "twitch",
-        "vimeo",
-        "youtube",
-        "youtube_music",
-        "applemusic",
-        "flowerytts",
-        "spotify",
-        "yandexmusic",
-        "clypit",
-        "getyarn",
-        "mixcloud",
-        "ocremix",
-        "pornhub",
-        "reddit",
-        "tiktok",
-        "tts",
-    ],
     playerOptions: {
         moveOnDisconnect: true,
         reconnectTries: 10,
         restTimeout: 5000,
-        userAgent: "Lunox",
     },
     nodes: [
         {

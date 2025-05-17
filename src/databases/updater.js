@@ -1,23 +1,34 @@
 const cron = require("node-cron");
 
 module.exports = async (client) => {
-    const updateSettings = async (items, settingMap, dataModel, type) => {
-        for (const item of items) {
-            const setting = settingMap.get(`${type}_${item.id}`);
+    const updateSettings = async (dataList, dataModel, type) => {
+        for (const { id } of dataList) {
+            const setting = client.data.get(`${type}_${id}`);
+            if (!setting) {
+                console.warn(`No setting found for ${type}_${id}`);
 
-            await dataModel.findOneAndUpdate({ id: item.id }, { $set: setting }, { upsert: true, new: true });
+                continue;
+            }
+
+            try {
+                await dataModel.findOneAndUpdate({ id }, { $set: setting }, { upsert: true, new: true });
+            } catch (err) {
+                console.error(`Failed to update ${type}_${id}:`, err);
+            }
         }
     };
 
-    cron.schedule("*/600 * * * * *", async () => {
+    // Every 10 minutes
+    cron.schedule("*/10 * * * *", async () => {
         try {
-            const guilds = await client.guildData.find();
-            await updateSettings(guilds, client.data, client.guildData, "guildData");
+            const [guilds, users] = await Promise.all([client.guildData.find(), client.userData.find()]);
 
-            const users = await client.userData.find();
-            await updateSettings(users, client.data, client.userData, "userData");
+            await updateSettings(guilds, client.guildData, "guildData");
+            await updateSettings(users, client.userData, "userData");
+
+            console.log("Data sync complete.");
         } catch (error) {
-            console.error("An error occurred while updating the database:", error);
+            console.error("An error occurred during the scheduled database update:", error);
         }
     });
 };
