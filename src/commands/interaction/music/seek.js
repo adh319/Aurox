@@ -33,7 +33,7 @@ module.exports = {
             return interaction.reply({ embeds: [embed], ephemeral: true });
         }
 
-        if (time * 1000 > player.queue.current.duration) {
+        if (time * 1000 > player.queue.current.length) {
             embed.setDescription(`Time is greater than the duration of the song.`);
 
             return interaction.reply({ embeds: [embed], ephemeral: true });

@@ -2,7 +2,6 @@ const { Client, Collection, GatewayIntentBits, Partials } = require("discord.js"
 const { ClusterClient, getInfo } = require("discord-hybrid-sharding");
 const { Connectors } = require("shoukaku");
 const { Kazagumo, Plugins } = require("kazagumo");
-const Spotify = require("kazagumo-spotify");
 
 class MainClient extends Client {
     constructor() {

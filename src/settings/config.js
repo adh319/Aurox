@@ -1,4 +1,4 @@
-require("dotenv").config();
+require("dotenv").config({ path: "./.env", quiet: true });
 
 module.exports = {
     // GENERAL DETAILS
@@ -24,10 +24,10 @@ module.exports = {
     },
     nodes: [
         {
-            name: "Lunox",
-            url: "localhost:2333",
-            auth: "youshallnotpass",
-            secure: parseBoolean("false"),
+            name: process.env.LAVALINK_NAME || "localhost",
+            url: process.env.LAVALINK_URL || "localhost:2333",
+            auth: process.env.LAVALINK_PASSWORD || "youshallnotpass",
+            secure: parseBoolean(process.env.LAVALINK_SECURE || "false"),
         },
     ],
     lavalink: {

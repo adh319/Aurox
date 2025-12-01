@@ -30,7 +30,7 @@ module.exports = {
             const trackUrl = track.uri;
             const trackTitles = formatString(track.title, 30).replace(/ - Topic$/, "") || "Unknown Title";
             const trackArtists = formatString(track.author, 25).replace(/ - Topic$/, "") || "Unknown Author";
-            const trackDuration = track.isStream ? "LIVE" : convertTime(track.duration);
+            const trackDuration = track.isStream ? "LIVE" : convertTime(track.length);
 
             return `\`${index + 1}.\` **[${trackTitles} - ${trackArtists}](${trackUrl})**  •  \`${trackDuration}\``;
         });
@@ -40,7 +40,7 @@ module.exports = {
             .setColor(client.config.embedColor)
             .setThumbnail(interaction.guild.iconURL())
             .setFooter({
-                text: `Total Songs: ${player.queue.size}  •  Total Duration: ${convertTime(player.queue.duration)}`,
+                text: `Total Songs: ${player.queue.size}  •  Total Duration: ${convertTime(player.queue.length)}`,
                 iconURL: client.user.displayAvatarURL(),
             });
 

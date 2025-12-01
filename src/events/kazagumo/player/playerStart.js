@@ -13,7 +13,7 @@ module.exports = async (client, player, track) => {
     const trackMsg = new EmbedBuilder()
         .setAuthor({ name: player.paused ? "Song Paused" : "Now Playing", iconURL: client.user.displayAvatarURL() })
         .setColor(client.config.embedColor)
-        .setThumbnail(track.artworkUrl)
+        .setThumbnail(track.thumbnail)
         .setDescription(`**[${trackTitle} - ${trackAuthor}](${track.uri})**`)
         .setFields(
             { name: "Duration", value: `\`${trackDuration}\``, inline: true },

@@ -83,6 +83,12 @@ DEFAULT_SOURCE = ytsearch: # Default source Available source: ytsearch:, ytmsear
 DEFAULT_YOUTUBE_THUMBNAIL = maxresdefault
 LAVASRC = false # Set to true if you have lavasrc plugin installed, so you can use spotify (spsearch:), applemusic (amsearch:), and others as source.
 LAVASRC_SOURCE = spsearch: # This will be used when LAVASRC is true
+
+# LAVALINK DETAILS
+LAVALINK_HOST = Aurox # Your Lavalink host
+LAVALINK_URL = localhost:2333 # Your Lavalink url & port
+LAVALINK_PASSWORD = youshallnotpass # Your Lavalink password
+LAVALINK_SECURE = false # Set to true if your Lavalink uses SSL
 ```
 
 `4.` Go to `./src/settings/config.js`, open the file and fill out these config options value.
@@ -90,15 +96,6 @@ LAVASRC_SOURCE = spsearch: # This will be used when LAVASRC is true
 ```js
 // line 8
 dev: [" "], // your Discord user Id & developer user Id. Seperate multiple Ids with a comma (,)
-// Line 26
-nodes: [
-    {
-        name: "Aurox",
-        url: "localhost:2333",
-        auth: "youshallnotpass",
-        secure: parseBoolean("false"),
-    },
-],
 ```
 
 `5.` Go to `./src/settings/emoji.js`, open the file and fill out the emoji variables.

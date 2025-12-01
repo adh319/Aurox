@@ -44,6 +44,8 @@ module.exports = {
             return interaction.reply({ embeds: [embed], ephemeral: true });
         }
 
+        await interaction.deferReply();
+
         if (!player) {
             player = await client.kazagumo.createPlayer({
                 guildId: interaction.guildId,
@@ -65,10 +67,10 @@ module.exports = {
 
             player.queue.add(track);
 
-            embed.setDescription(`Added **[${trackTitle} - ${trackAuthor}](${track.uri})** - \`${convertTime(track.duration)}\`.`);
+            embed.setDescription(`Added **[${trackTitle} - ${trackAuthor}](${track.uri})** - \`${convertTime(track.length)}\`.`);
         }
 
-        await interaction.reply({ embeds: [embed] });
+        await interaction.editReply({ embeds: [embed] });
 
         if (!player.playing) return player.play();
     },
