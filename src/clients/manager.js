@@ -1,4 +1,4 @@
-const MainClient = require("./lunox.js");
+const MainClient = require("./aurox.js");
 const client = new MainClient();
 
 client.connect();
